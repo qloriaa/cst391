@@ -28,7 +28,7 @@ router
     .put(BooksController.updateBook);
 
 router
-    .route('/books/:BooksId')
+    .route('/books/:bookId')
     .delete(BooksController.deleteBook);
 
 export default router;
