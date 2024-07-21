@@ -5,5 +5,5 @@ export interface Book {
     author: string,
     price: number,
     description: string, 
-    ISBN13: string
+    isbn13: string
 }
