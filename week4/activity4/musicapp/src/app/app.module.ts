@@ -21,14 +21,14 @@ import { DeleteAlbumComponent } from './delete-album/delete-album.component';
     CreateAlbumComponent,
     DisplayAlbumComponent,
     EditAlbumComponent,
-    DeleteAlbumComponent
+    DeleteAlbumComponent,
   ],
   imports: [
     BrowserModule,
     // deprecated, superseded by provideHttpClient() in Angular 18
     HttpClientModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [
     provideHttpClient()

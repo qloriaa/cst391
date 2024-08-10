@@ -1,0 +1,106 @@
+import React, { useState, useEffect } from 'react';
+// BrowserRouter: The wrapper component for router components.
+// Routes: The immediate parent component of an individual Route.
+// Route: Defines an individual Route in the application.
+import { Route, Routes, BrowserRouter } from 'react-router-dom';
+//import { createMemoryHistory } from 'history';
+
+import dataSource from './dataSource';
+//import albums from './albums.json';
+import './App.css';
+
+import SearchAlbum from './SearchAlbum';
+import NavBar from './NavBar';
+import NewAlbum from './NewAlbum';
+import OneAlbum from './OneAlbum';
+
+const App = (props) => {
+    // Hook for Album List
+    const [albumList, setAlbumList] = useState ([]);
+    const [searchPhrase, setSearchPhrase] = useState ('');
+    const [currentlySelectedAlbumId, setCurrentlySelectedAlbumId] = useState(0);
+
+    let refresh = false;
+
+    // Methods
+
+    // Callback hook that initializes the component
+    // - Note: this is where a call to web service API is typically placed.
+    useEffect(() => {
+        // Update the album list
+        // - setAlbumList(albums);
+        loadAlbums();
+        //if external list is edited, this will make sure changes show up in browser.
+    }, [refresh]);
+
+    const loadAlbums = async () => {
+        // Async/Await is non-blocking, 
+        //  processes will continue to run while the data is being fetched.
+        const response = await dataSource.get('/albums');
+
+        setAlbumList(response.data);
+    };
+
+    /**
+     * Get user search phrase.
+     * @param {*} phrase 
+     */
+    const UpdateSearchResults = async (phrase) => {
+        console.log('phrase is ' + phrase);
+        setSearchPhrase(phrase.toLowerCase());
+    };
+
+    /**
+     * 
+     * @param {*} id 
+     * @param {*} navigate 
+     */
+    const updateSingleAlbum = (id, navigate) => {
+        console.log('Update Single Album = ', id);
+        console.log('Update Single Album = ', navigate);
+        
+        var indexNumber = 0;
+        for (var i = 0; i < albumList.length; ++i) {
+            if (albumList[i].id === id)
+                indexNumber = i;
+        }
+
+        setCurrentlySelectedAlbumId(indexNumber);
+        console.log('update path', '/show/' + indexNumber);
+        navigate('/show/' + indexNumber);
+    };
+
+    /**
+     * Create a new array of album Cards to display.
+     * @returns A new array with each element being the result of the callback function.
+     */
+    console.log('albumList', albumList);
+    const renderedList = albumList.filter((album) => {
+        if (album.description.toLowerCase().includes(searchPhrase) || searchPhrase === '') {
+            return true;
+        }
+        return false;
+    });
+    console.log('renderedList', renderedList);
+
+    return (
+        <BrowserRouter>
+            <NavBar />
+            <Routes>
+                <Route exact path='/' element= {
+                    <SearchAlbum
+                        UpdateSearchResults= {UpdateSearchResults}
+                        albumList= {renderedList}
+                        updateSingleAlbum= {updateSingleAlbum}
+                    /> 
+                } />
+                <Route exact path='/new' element= {<NewAlbum />} />
+                <Route exact path='/show/:albumId' element= {
+                    <OneAlbum album= {albumList[currentlySelectedAlbumId]} />
+                } />
+            </Routes>
+        </BrowserRouter>
+    );
+};
+
+export default App;

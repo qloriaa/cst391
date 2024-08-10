@@ -7,11 +7,10 @@ import { HttpClient } from '@angular/common/http';
 
 // application-wide injector - allows service to be accessed across entire app.
 @Injectable({ providedIn: 'root' })
-export class MusicServiceService {
-
-  albums: Album[] = exampledata;
+export class MusicServiceService  {
 
   // Add private connection
+  // (my Express MusicAPI server listens to port 5000)
   private host = 'http://localhost:5000';
 
   constructor(private http: HttpClient) {}
