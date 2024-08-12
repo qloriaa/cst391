@@ -9,19 +9,16 @@ import { Artist } from '../models/artists.model';
   styleUrl: './list-artists.component.css'
 })
 export class ListArtistsComponent implements OnInit {
+  constructor (private route: ActivatedRoute, private service: MusicServiceService) { }
 
   selectedArtist: Artist | null = null;
   artists: Artist[] = [];
 
-  constructor (private route: ActivatedRoute, private service: MusicServiceService) {
-
-  }
-
   ngOnInit() {
     console.log("Getting data...");
     this.service.getArtists((artists: Artist[]) => {
-      this.artists = artists;
-      console.log('this.artists', this.artists);
+      this.artists= artists;
+      console.log("this.artist", this.artists);
     });
   }
 

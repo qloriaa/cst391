@@ -2,18 +2,23 @@ import { Injectable } from '@angular/core';
 import exampledata from '../../data/sample-music-data.json';
 import { Artist } from '../models/artists.model';
 import { Album } from '../models/albums.model';
-import { Track } from '../models/tracks.model';
+import { Track } from '../models/Track'
 import { HttpClient } from '@angular/common/http';
 
 // application-wide injector - allows service to be accessed across entire app.
 @Injectable({ providedIn: 'root' })
 export class MusicServiceService  {
 
+  // Create Artist and Albums lists
+  artists: Artist[] = [];
+  albums: Album[] = [];
+
   // Add private connection
   // (my Express MusicAPI server listens to port 5000)
   private host = 'http://localhost:5000';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+  }
 
   /**
    * GET All Artists
@@ -49,7 +54,15 @@ export class MusicServiceService  {
    * @param callback Album[]
    */
   public getAlbumsOfArtist(artistName: String, callback: (albums: Album[]) => void): void {
-    // Http request string
+
+    let request = this.host + '/albums/' + artistName;
+    console.log('request', request);
+
+    this.http.get<Album[]>(this.host + "/albums/" + artistName)
+      .subscribe((albums: Album[]) => {
+        callback(albums);
+      });
+  /*  // Http request string
     let request = this.host + `/albums/${artistName}`;
 
     console.log('request', request);
@@ -57,6 +70,7 @@ export class MusicServiceService  {
       console.log('have albums', albums);
       callback(albums);
     });
+  */
   }
 
   /**

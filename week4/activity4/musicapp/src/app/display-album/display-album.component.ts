@@ -9,7 +9,9 @@ import { MusicServiceService } from '../service/music-service.service';
   styleUrl: './display-album.component.css'
 })
 export class DisplayAlbumComponent {
-  @Input()  album!: Album;
+  @Input()  album?: Album;
+
+  currentRoute: string = '';
 
   constructor (private route: ActivatedRoute, private service: MusicServiceService) {
     // access route params
@@ -21,7 +23,9 @@ export class DisplayAlbumComponent {
       this.service.getAlbumById(albumId, (album: Album[]) => {
         album: album[0];
       });
-    })
+
+      console.log(this.album);
+    });
   }
 
   ngOnInit () {}

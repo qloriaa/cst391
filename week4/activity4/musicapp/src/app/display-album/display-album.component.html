@@ -3,7 +3,7 @@
     <div class="row no-gutters">
       <div class="col-md-4">
         <div style="height:150px; width:150px;overflow:hidden;">
-          <img src="assets/images/{{ album.image }}" class="card-img" alt="{{ album.title }}" width="150px" height="150px">
+          <img src="assets/images/{{ album!.image }}" class="card-img" alt="{{ album!.title }}" width="150px" height="150px">
         </div>
       </div>
       <div class="col-md-8">
@@ -18,10 +18,10 @@
                 <a href="#" data-toggle="collapse" data-target="#collapseTracks" aria-expanded="false" aria-controls="collapseTracks"><i class="fa fa-list" ></i></a>
               </td>
               <td width="50px" align="center">
-                <a [routerLink]="['/edit', album.artist, album.albumId]"><i class="fa fa-edit"></i></a>
+                <a [routerLink]="['/edit', album!.artist, album!.albumId]"><i class="fa fa-edit"></i></a>
               </td>
               <td width="50px" align="center">
-                <a [routerLink]="['/delete', album.artist]"><i class="fa fa-trash"></i></a>
+                <a [routerLink]="['/delete', album!.artist, album!.albumId]"><i class="fa fa-trash"></i></a>
               </td>
             </tr>
           </table>
@@ -34,7 +34,7 @@
 <div class="collapse" id="collapseTracks" style="margin-left:50px;margin-right:50px">
   <div class="card card-body">
     <ul class="list-group-flush">
-      <li class="list-group-item" *ngFor="let track of album.tracks">{{ track.number }}. {{ track.title}}</li>
+      <li class="list-group-item" *ngFor="let track of album!.tracks">{{ track.number }}. {{ track.title}}</li>
     </ul>
   </div>
 </div>

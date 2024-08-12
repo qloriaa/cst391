@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MusicServiceService } from './service/music-service.service';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,14 @@ import { Router } from '@angular/router';
 
 })
 export class AppComponent {
-  title = 'My Music Collection';
-  version = 1.0;
+  title: String = 'My Music Collection';
+  version: String = "1.0";
 
   constructor(private router: Router)
   {
 
   }
+
 
   // Display version info using JS Alertbox
   displayVersion () {

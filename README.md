@@ -12,7 +12,7 @@
     - [Activity 3](week3/activity3/README.md)
 
 - Week 4: Integration With Angular
-    - [Activity 4]()
+    - [Activity 4](./week4/activity4/README.md)
     - [Milestone 4]()
 
 - Week 5: React Components
@@ -22,7 +22,7 @@
     - [Activity 6](./week6/README.md)
 
 - Week 7: React Forms
-    - [Activity 7]()
+    - [Activity 7](./week7/activity7/README.md)
     - [Milestone 5]()
 
 - Week 8:

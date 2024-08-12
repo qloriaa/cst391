@@ -8,7 +8,7 @@ import { MinLengthValidator } from '@angular/forms';
   templateUrl: './delete-album.component.html',
   styleUrl: './delete-album.component.css'
 })
-export class DeleteAlbumComponent {
+export class DeleteAlbumComponent implements OnInit {
 
   constructor (private route: ActivatedRoute, private service: MusicServiceService) {
 

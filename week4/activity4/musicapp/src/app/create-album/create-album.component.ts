@@ -64,7 +64,7 @@ export class CreateAlbumComponent implements OnInit
     this.album.tracks = tracks;
 
     this.service.createAlbum(this.album, () => {
-      console.log("The return from createAlbum() was " + status);
+      console.log("Album Created");
     });
     this.wasSubmitted = true;
   }
