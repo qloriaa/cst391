@@ -1,0 +1,12 @@
+<div class="list-group" *ngIf="selectedBook == null">
+  <table>
+    <tr class="list-group-item" active *ngFor="let book of books"
+      (click)="onSelectBook(book)">
+        {{ book.Title }} by {{ book.Author }}
+    </tr>
+  </table>
+</div>
+
+<div *ngIf="selectedBook">
+  <app-display-book [book]="selectedBook">book selected</app-display-book>
+</div>

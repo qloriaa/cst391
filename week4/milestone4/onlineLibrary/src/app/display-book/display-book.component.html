@@ -1,0 +1,36 @@
+<div align="center" *ngIf="selectedEdit == null || selectedDelete == null">
+  <div class="card mb-6" style="max-width: 1200px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <div style="height:400px; width:400px; overflow:hidden;">
+          <img src="https://picsum.photos/id/{{ (book.Id % 10) + 10 }}/600/900" class="card-img" alt="{{ book.Title }}"
+            width="400px" height="400px">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="max-width: 600px;">
+          <h3 class="card-title">{{ book!.Title }}</h3>
+          <p class="card-text"> by {{ book!.Author }}</p>
+          <p class="card-text"><small class="text-muted">{{ book!.ISBN13 }}</small></p>
+          <h5>{{ book!.Price }}</h5>
+          <p class="card-text">{{ book!.Description }}</p>
+
+          <table>
+            <tr>
+              <button type="submit" (click)="onDelete()" class="btn btn-secondary">Delete</button>
+              <button type="submit" (click)="onEdit()" class="btn btn-primary">Edit</button>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-edit-book *ngIf="selectedEdit" [book]="selectedEdit"></app-edit-book>
+<app-delete-book *ngIf="selectedDelete" [id]="selectedDelete"></app-delete-book>
+
+
+
+
+

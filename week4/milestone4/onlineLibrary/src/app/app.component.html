@@ -1,0 +1,27 @@
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}
+  </h1>
+</div>
+
+<div>
+  <nav class="navbar navbar-light navbar-expand-md navigation-clean-button">
+    <div class="container">
+      <a class="navbar-brand"  routerLink="" (click)="displayBookList()">My Books<br></a>
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navcol-1">
+        <span class="sr-only">Menu</span>
+        <span class="navbar-toggler-icon"></span>
+      </button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="nav navbar-nav mr-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/create']">Add Book</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" routerLink="" (click)="displayBookList()">Inventory</a></li>
+                </ul>
+                <span class="navbar-text actions"><a class="btn btn-light action-button" role="button" href="#" (click)="displayVersion()">About</a></span>
+            </div>
+      </div>
+  </nav>
+</div>
+
+<router-outlet></router-outlet>
+
