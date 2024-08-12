@@ -34,4 +34,3 @@ export class DisplayBookComponent implements OnInit {
     this.selectedDelete = this.book.Id;
   }
 }
-

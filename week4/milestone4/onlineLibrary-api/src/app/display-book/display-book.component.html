@@ -1,0 +1,43 @@
+<div align="center">
+  <div class="card mb-6" style="max-width: 1200px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <div style="height:400px; width:400px; overflow:hidden;">
+          <img src="https://picsum.photos/id/{{ book?.id }}/600/900" class="card-img" alt="{{ book!.title }}"
+            width="400px" height="400px">
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="max-width: 600px;">
+          <h3 class="card-title">{{ book!.title }}</h3>
+          <p class="card-text"> by {{ book!.author }}</p>
+          <p class="card-text"><small class="text-muted">{{ book!.isbn13 }}</small></p>
+          <h5>{{ book!.price }}</h5>
+          <p class="card-text">{{ book!.description }}</p>
+
+          <table>
+						<tr>
+              <td width="50px" align="center">
+                <button class="btn btn-primary" (click)="onEdit()">Edit
+								 <!-- <a style="color: whitesmoke;" [routerLink]="['/edit', book!.id]">Edit</a> -->
+                </button>
+							</td>
+
+							<td width="50px" align="center">
+                <button class="btn btn-secondary">
+								  <a style="color: whitesmoke;" [routerLink]="['/delete', book!.id]">Delete</a>
+                </button>
+                </td>
+
+						</tr>
+					</table>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<router-outlet></router-outlet>
+

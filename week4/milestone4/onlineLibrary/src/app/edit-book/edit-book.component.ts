@@ -35,4 +35,3 @@ export class EditBookComponent implements OnInit {
     this.wasSubmitted = true;
   }
 }
-
