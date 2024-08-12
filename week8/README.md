@@ -3,9 +3,7 @@
 ## GIT Repository Links
 [API Application Source Code](https://github.com/qloriaa/cst391/tree/main/MilestoneProject)
 
-[Angular Application Source Code](https://github.com/qloriaa/cst391/tree/main/week4/milestone4/onlineLibrary)
-
-[React Application Source Code]()
+[React Application Source Code](https://github.com/qloriaa/cst391/tree/main/week7/bookshop)
 
 ## Milestone PowerPoint
 [Presentation Link](https://docs.google.com/presentation/d/1ZOUEjsWjGWI_JA4Jj_TjzAo_ZWL8ETZdJQwtTxtlVdY/edit?usp=sharing)
