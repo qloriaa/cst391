@@ -11,9 +11,9 @@
 [Presentation Link](https://docs.google.com/presentation/d/1ZOUEjsWjGWI_JA4Jj_TjzAo_ZWL8ETZdJQwtTxtlVdY/edit?usp=sharing)
 
 ## Milestone Screencast
-[Video 1 - Application Walkthrough]()
+[Video 1 - Application Walkthrough](https://www.loom.com/share/093287f23b1a485aa5cc5efbc0b95428)
 
-[Video 2 - Application and API]()
+[Video 2 - PowerPoint Presentation ](https://www.loom.com/share/6be018fcddce4616a261e4925ca3dc2b)
 
 ## Postman Documentation for CRUD Operations
 [API Requests](https://www.postman.com/telecoms-candidate-95543226/workspace/cst-391-js-web-app-dev/collection/32474471-91631e8c-7892-47b7-9470-aa68daaefb62?action=share&source=copy-link&creator=32474471)

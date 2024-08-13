@@ -27,3 +27,5 @@
 
 - Week 8:
     - [Milestone 6](./week8/README.md)
+
+- [Missed Discussion Questions](./TopicDQs/DQs.md)
